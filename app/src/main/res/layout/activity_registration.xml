@@ -12,7 +12,7 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/registerBtn">
+        android:layout_above="@id/privacy_policy">
 
         <LinearLayout
             android:orientation="vertical"
@@ -198,7 +198,7 @@
         android:layout_height="wrap_content"
         android:text="By clicking on Register, You are confirming your acceptance of our PRIVACY POLICY."
         android:textStyle="bold"
-        android:textSize="15sp"
+        android:textSize="14sp"
         android:textColor="@color/white"
         android:id="@+id/privacy_policy"
         android:gravity="center"
