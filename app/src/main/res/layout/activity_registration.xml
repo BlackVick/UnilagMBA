@@ -193,7 +193,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Clicking on Register, You are confirming your acceptance of our PRIVACY POLICY."
+                android:text="By clicking on Register, You are confirming your acceptance of our PRIVACY POLICY."
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@color/white"
