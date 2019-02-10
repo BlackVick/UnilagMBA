@@ -198,9 +198,10 @@
         android:layout_height="wrap_content"
         android:text="By clicking on Register, You are confirming your acceptance of our PRIVACY POLICY."
         android:textStyle="bold"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textColor="@color/white"
         android:id="@+id/privacy_policy"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:layout_above="@id/registerBtn"/>
 
