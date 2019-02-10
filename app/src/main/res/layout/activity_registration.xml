@@ -188,21 +188,21 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_lock_black_24dp"
                 android:drawablePadding="5dp"/>
-            
-            
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="By clicking on Register, You are confirming your acceptance of our PRIVACY POLICY."
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:textColor="@color/white"
-                android:id="@+id/privacy_policy"
-                android:gravity="center"/>
 
         </LinearLayout>
 
     </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="By clicking on Register, You are confirming your acceptance of our PRIVACY POLICY."
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:id="@+id/privacy_policy"
+        android:gravity="center"
+        android:layout_above="@id/registerBtn"/>
 
     <Button
         android:id="@+id/registerBtn"
@@ -216,6 +216,9 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:padding="10dp"
-        android:layout_margin="15dp"/>
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="5dp"/>
 
 </RelativeLayout>

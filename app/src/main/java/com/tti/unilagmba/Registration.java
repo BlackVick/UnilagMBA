@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +24,7 @@ public class Registration extends AppCompatActivity {
 
     private MaterialEditText matricEdt, nameEdt, username, passwordEdt, repeatPassEdt, secureCode, mail, number, occupation;
     private Button registerBtn;
+    private TextView privacyShit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class Registration extends AppCompatActivity {
         mail = (MaterialEditText)findViewById(R.id.newUserMailEdt);
         number = (MaterialEditText)findViewById(R.id.newUserPhoneEdt);
         occupation = (MaterialEditText)findViewById(R.id.newUserOccupationEdt);
+        privacyShit = (TextView)findViewById(R.id.privacy_policy);
 
         /*---   INITIALIZING DATABASE   ---*/
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
