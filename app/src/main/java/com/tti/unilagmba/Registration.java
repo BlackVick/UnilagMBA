@@ -1,8 +1,13 @@
 package com.tti.unilagmba;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -43,6 +48,27 @@ public class Registration extends AppCompatActivity {
         number = (MaterialEditText)findViewById(R.id.newUserPhoneEdt);
         occupation = (MaterialEditText)findViewById(R.id.newUserOccupationEdt);
         privacyShit = (TextView)findViewById(R.id.privacy_policy);
+
+
+        /*---   PRIVACY SHIIIT   ---*/
+        String text = "By clicking on Register, You are confirming your acceptance of our PRIVACY POLICY.";
+        SpannableString ss = new SpannableString(text);
+        ClickableSpan policy = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+
+                String policyUrl = "http://www.teenqtech.com/customer-service-privacy-policy";
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(policyUrl));
+                startActivity(i);
+
+            }
+        };
+        ss.setSpan(policy, 67, 81, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        privacyShit.setText(ss);
+        privacyShit.setMovementMethod(LinkMovementMethod.getInstance());
+
 
         /*---   INITIALIZING DATABASE   ---*/
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
