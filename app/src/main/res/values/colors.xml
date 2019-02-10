@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#d4ecf9</color>
+    <color name="colorPrimaryDark">#ca398dd1</color>
+    <color name="colorAccent">#ff000000</color>
+    <color name="black">#ff000000</color>
+    <color name="overlayBackground">#7f333639</color>
+    <color name="overlayActionBar">#b964b3e7</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="ButtonAlt">#b22222</color>
+    <color name="ButtonSign">#1e90ff</color>
+    <color name="transparentBTShaded">#4f0e0d0e</color>
+    <color name="proceed">#ff669900</color>
+    <color name="shadeFade">#F5F5F5</color>
+
+</resources>

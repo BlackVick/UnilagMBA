@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    android:iconTint="@color/black">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_update_user_info"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="Update Your Info" />
+        <item
+            android:id="@+id/nav_update_user_password"
+            android:icon="@drawable/ic_lock_black_24dp"
+            android:title="Change Your Password" />
+        <item
+            android:id="@+id/nav_student_portal"
+            android:icon="@drawable/ic_school_black_24dp"
+            android:title="Student Portal" />
+        <item
+            android:id="@+id/nav_update_news_feed"
+            android:icon="@drawable/ic_news_black_24dp"
+            android:title="Update News Feed" />
+        <item
+            android:id="@+id/nav_election"
+            android:icon="@drawable/ic_voting_24dp"
+            android:title="Election Voting Portal" />
+        <item
+            android:id="@+id/nav_excos"
+            android:icon="@drawable/ic_nature_people_black_24dp"
+            android:title="Unilag MBA Excos" />
+        <item
+            android:id="@+id/nav_friend_requests"
+            android:icon="@drawable/ic_add_friend_24dp"
+            android:title="Friend Requests" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_applications_black_24dp"
+            android:title="Settings"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_exit_black_24dp"
+            android:title="Logout" />
+
+    </group>
+
+
+
+
+
+</menu>

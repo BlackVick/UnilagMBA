@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tti.unilagmba.UpdateNewsFeed"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:text="NOTE : All Broadcast Require A Picture Upload \n Also, Your Identity Is Attached To Everything You Post. \n Use Responsibly"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textSize="15sp"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:id="@+id/bcShit"
+        android:orientation="vertical"
+        android:layout_marginRight="8dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/newsTopic"
+            android:hint="Topic"
+            android:textColorHint="@color/white"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            android:inputType="text"
+            app:met_baseColor="@color/white"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/white"
+            app:met_singleLineEllipsis="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:padding="8dp"
+            android:layout_marginBottom="7dp"
+            android:id="@+id/newsDetails"
+            android:background="@drawable/news_back"
+            android:hint="Broadcast Message"
+            android:textColorHint="@color/colorAccent"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:maxLines="6"
+            android:gravity="top|start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/newsCategorySpinner"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:textSize="15sp"
+            android:layout_height="wrap_content"/>
+
+
+
+        <com.rey.material.widget.ImageButton
+            android:layout_gravity="end"
+            android:layout_margin="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_file_upload_black_24dp"
+            android:id="@+id/uploadNewsImageButton"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/updateNewsFeedBtn"
+        android:text="Send News"
+        android:textColor="@color/white"
+        android:background="@drawable/buttons"
+        android:layout_margin="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

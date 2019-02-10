@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tti.unilagmba.Login"
+    android:background="@drawable/new_unilag_bacground"
+    android:padding="0dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_help_black_24dp"
+        android:id="@+id/helpButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:id="@+id/loginStuff"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/logoShit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:src="@drawable/unilag_logo"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/logoShit"
+            android:id="@+id/nameShit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UNILAG MBA ASSOCIATION"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/loginMatricEdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:layout_marginTop="15dp"
+            android:padding="8dp"
+            android:inputType="number"
+            android:hint="Matric Number"
+            android:textColorHint="@color/white"
+            android:ems="10"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:drawablePadding="20dp"
+            android:textColor="@color/white"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
+
+        <EditText
+            android:id="@+id/loginPasswordEdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:layout_marginTop="15dp"
+            android:padding="8dp"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:textColorHint="@color/white"
+            android:ems="10"
+            android:maxLines="1"
+            android:drawablePadding="20dp"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
+            android:textColor="@color/white"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttons"
+            android:textAllCaps="false"
+            android:text="LOG-IN"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:clickable="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"/>
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button"
+            android:textAllCaps="false"
+            android:text="REGISTER"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:clickable="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/passwordRecoveryTxt"
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="FORGOT PASSWORD ?"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:elegantTextHeight="true"
+                android:textSize="15sp"
+                android:clickable="true"/>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/secureCodeRecoveryTxt"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="FORGOT SECURE - CODE ?"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:elegantTextHeight="true"
+                android:textSize="15sp"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/powered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Powered By TeenQ Technologies &#174;"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>

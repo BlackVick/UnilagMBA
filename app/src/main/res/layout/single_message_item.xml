@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/theAll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="2dp"
+    android:layout_marginTop ="1dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginBottom="1dp">
+
+        <com.github.library.bubbleview.BubbleTextView
+            android:layout_marginTop="1dp"
+            android:layout_alignParentStart="true"
+            android:id="@+id/chatMessageTextSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:padding="6dp"
+            app:arrowWidth="8dp"
+            app:angle="8dp"
+            app:arrowHeight="10dp"
+            app:arrowPosition="14dp"
+            app:arrowLocation="left"
+            app:arrowCenter="true"
+            app:bubbleColor="@color/colorPrimaryDark"
+            android:visibility="gone"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/yourMessageLayoutForReadReceipt">
+
+        <com.github.library.bubbleview.BubbleImageView
+            android:layout_marginTop="1dp"
+            android:layout_gravity="end"
+            android:id="@+id/chatImageYou"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:padding="6dp"
+            app:arrowWidth="8dp"
+            app:angle="8dp"
+            app:arrowHeight="10dp"
+            app:arrowPosition="14dp"
+            app:arrowLocation="right"
+            app:arrowCenter="true"
+            app:bubbleColor="@color/white"/>
+
+        <com.github.library.bubbleview.BubbleTextView
+            android:layout_marginTop="1dp"
+            android:layout_gravity="end"
+            android:id="@+id/chatMessageTextYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:padding="6dp"
+            app:arrowWidth="8dp"
+            app:angle="8dp"
+            app:arrowHeight="10dp"
+            app:arrowPosition="14dp"
+            app:arrowLocation="right"
+            app:arrowCenter="true"
+            app:bubbleColor="@color/white"/>
+
+        <com.github.library.bubbleview.BubbleImageView
+            android:layout_marginTop="1dp"
+            android:layout_gravity="end"
+            android:id="@+id/chatDocumentYou"
+            android:src="@drawable/ic_document_upload_24dp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:padding="6dp"
+            app:arrowWidth="8dp"
+            app:angle="8dp"
+            app:arrowHeight="10dp"
+            app:arrowPosition="14dp"
+            app:arrowLocation="right"
+            app:arrowCenter="true"
+            app:bubbleColor="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:src="@drawable/ic_message_sent"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/messageSentTick"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S"
+                android:textSize="13sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/messageSentAbbvr"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+    <com.github.library.bubbleview.BubbleImageView
+        android:layout_marginTop="1dp"
+        android:layout_alignParentStart="true"
+        android:id="@+id/chatImageSender"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:padding="6dp"
+        app:arrowWidth="8dp"
+        app:angle="8dp"
+        app:arrowHeight="10dp"
+        app:arrowPosition="14dp"
+        app:arrowLocation="left"
+        app:arrowCenter="true"
+        app:bubbleColor="@color/colorPrimaryDark"
+        android:visibility="gone"/>
+
+
+    <com.github.library.bubbleview.BubbleImageView
+        android:layout_marginTop="1dp"
+        android:layout_alignParentStart="true"
+        android:id="@+id/chatDocumentSender"
+        android:src="@drawable/ic_document_upload_24dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:padding="6dp"
+        app:arrowWidth="8dp"
+        app:angle="8dp"
+        app:arrowHeight="10dp"
+        app:arrowPosition="14dp"
+        app:arrowLocation="left"
+        app:arrowCenter="true"
+        app:bubbleColor="@color/colorPrimaryDark"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

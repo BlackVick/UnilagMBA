@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/documentNameTxtAdd"
+            android:hint="Name"
+            android:textColorHint="@color/colorAccent"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:inputType="text"
+            android:layout_marginBottom="2dp"
+            app:met_baseColor="@color/colorAccent"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/colorPrimary"
+            app:met_singleLineEllipsis="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/courseNameTxtAdd"
+            android:hint="Course Name"
+            android:textColorHint="@color/colorAccent"
+            android:text=""
+            android:textAllCaps="true"
+            android:textColor="@color/ButtonAlt"
+            android:textSize="22sp"
+            android:inputType="text"
+            android:layout_marginBottom="2dp"
+            app:met_baseColor="@color/colorAccent"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/colorPrimary"
+            app:met_singleLineEllipsis="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/docTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="3dp"
+            android:textSize="23sp"
+            android:layout_height="wrap_content" />
+
+
+
+        <LinearLayout
+            android:layout_marginTop="4dp"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/selectBtn"
+                android:text="Select File"
+                android:textColor="@color/black"
+                android:background="@drawable/buttons"
+                android:layout_margin="8dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/uploadBtn"
+                android:text="Upload File"
+                android:textColor="@color/black"
+                android:background="@drawable/buttons"
+                android:layout_margin="8dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

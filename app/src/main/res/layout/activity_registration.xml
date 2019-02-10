@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    tools:context="com.tti.unilagmba.Registration">
+
+    <ScrollView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/registerBtn">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginRight="2dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/newMatricEdt"
+                android:hint="Matric Number"
+                android:textColorHint="@color/white"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:inputType="text"
+                app:met_baseColor="@color/white"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="11"
+                app:met_primaryColor="@color/white"
+                app:met_singleLineEllipsis="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:drawablePadding="5dp"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/newNameEdt"
+                android:hint="Full Name"
+                android:textColorHint="@color/white"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:inputType="text"
+                app:met_baseColor="@color/white"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="40"
+                app:met_primaryColor="@color/white"
+                app:met_singleLineEllipsis="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:drawablePadding="5dp"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/newUserNameEdt"
+                android:hint="Username"
+                android:textColorHint="@color/white"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:inputType="text"
+                app:met_baseColor="@color/white"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="40"
+                app:met_primaryColor="@color/white"
+                app:met_singleLineEllipsis="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"
+                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:drawablePadding="5dp"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/newUserMailEdt"
+                android:hint="Mail"
+                android:textColorHint="@color/white"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:inputType="textEmailAddress"
+                app:met_baseColor="@color/white"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="40"
+                app:met_primaryColor="@color/white"
+                app:met_singleLineEllipsis="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:drawablePadding="5dp"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/newUserPhoneEdt"
+                android:hint="Phone"
+                android:textColorHint="@color/white"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:inputType="phone"
+                app:met_baseColor="@color/white"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="11"
+                android:maxLength="11"
+                app:met_primaryColor="@color/white"
+                app:met_singleLineEllipsis="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_local_phone_black_24dp"
+                android:drawablePadding="5dp"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/newUserOccupationEdt"
+                android:hint="Occupation"
+                android:textColorHint="@color/white"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:inputType="text"
+                app:met_baseColor="@color/white"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="40"
+                app:met_primaryColor="@color/white"
+                app:met_singleLineEllipsis="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_work_black_24dp"
+                android:drawablePadding="5dp"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/newPasswordEdt"
+                android:hint="Password"
+                android:textColorHint="@color/white"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:inputType="textPassword"
+                app:met_baseColor="@color/white"
+                app:met_floatingLabel="highlight"
+                app:met_minCharacters="5"
+                app:met_primaryColor="@color/white"
+                app:met_singleLineEllipsis="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+                android:drawablePadding="5dp"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/newPasswordRepeatEdt"
+                android:hint="Confirm Password"
+                android:textColorHint="@color/white"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:inputType="textPassword"
+                app:met_baseColor="@color/white"
+                app:met_floatingLabel="highlight"
+                app:met_minCharacters="5"
+                app:met_primaryColor="@color/white"
+                app:met_singleLineEllipsis="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+                android:drawablePadding="5dp"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/secureCodeEdt"
+                android:hint="Secure Code"
+                android:textColorHint="@color/white"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:inputType="text"
+                android:maxLength="4"
+                app:met_baseColor="@color/white"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="4"
+                app:met_primaryColor="@color/white"
+                app:met_singleLineEllipsis="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:drawablePadding="5dp"/>
+            
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="By clicking on Register, You are confirming your acceptance of our PRIVACY POLICY."
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:id="@+id/privacy_policy"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_button"
+        android:textAllCaps="false"
+        android:text="REGISTER"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+</RelativeLayout>

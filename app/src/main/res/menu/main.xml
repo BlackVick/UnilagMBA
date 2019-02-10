@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:iconTint="@color/black"
+    >
+    <item
+        android:id="@+id/action_main_feed"
+        android:orderInCategory="100"
+        android:title="Main Feed"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/missing_items"
+        android:orderInCategory="101"
+        android:title="Missing Items"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/events_menu"
+        android:orderInCategory="102"
+        android:title="Events"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="103"
+        android:title="Help"
+        android:icon="@drawable/ic_help_black_24dp"
+        app:showAsAction="never" />
+</menu>

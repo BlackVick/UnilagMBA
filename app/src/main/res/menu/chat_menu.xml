@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:iconTint="@color/black">
+    <item
+        android:id="@+id/action_add_friend"
+        android:orderInCategory="100"
+        android:title="Add Friend"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_add_friend_24dp"/>
+    <item
+        android:id="@+id/action_friend_requests"
+        android:orderInCategory="102"
+        android:title="Friend Requests"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="103"
+        android:title="Help"
+        android:icon="@drawable/ic_help_black_24dp"
+        app:showAsAction="never" />
+
+</menu>

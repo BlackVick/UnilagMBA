@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color -->
+    <item android:drawable="@drawable/new_unilag_bacground"/>
+
+    <!-- Logo at the center of the screen -->
+    <item
+        android:drawable="@drawable/unilag_logo"
+        android:gravity="center"/>
+</layer-list>

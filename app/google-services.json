@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1051884251063",
+    "firebase_url": "https://unilag-mba.firebaseio.com",
+    "project_id": "unilag-mba",
+    "storage_bucket": "unilag-mba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051884251063:android:fbc9cdeab717c517",
+        "android_client_info": {
+          "package_name": "com.tti.unilagmba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051884251063-3furcagqeu67vlpl9rd601pavlgc29kl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tti.unilagmba",
+            "certificate_hash": "2dfbece9f3ea42552a0cbdd458190cef038fd59c"
+          }
+        },
+        {
+          "client_id": "1051884251063-0fc2gvdes76frtmeud7me6dpaipmh6b7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkjD21kV9XPM2mF9iEBthB7S6UPcmVKo0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051884251063-0fc2gvdes76frtmeud7me6dpaipmh6b7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
