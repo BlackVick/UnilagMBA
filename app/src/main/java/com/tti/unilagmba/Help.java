@@ -40,7 +40,7 @@ public class Help extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setData(Uri.parse("mailto:"));
-                String[] to = {"simonrileyindustries@gmail.com"};
+                String[] to = {"unilag_mba@teenqtech.com"};
                 intent.putExtra(Intent.EXTRA_EMAIL, to);
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Unilag MBA Support Request!");
                 intent.putExtra(Intent.EXTRA_TEXT, "Please Describe Your Enquiry Below, Please Provide Screenshots If Available As Well For Complaints");

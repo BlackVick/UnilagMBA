@@ -75,9 +75,7 @@ public class Chat extends Fragment {
             friendsRef = db.getReference("Friends").child(userSav);
         }
 
-        friendsRef.keepSynced(true);
         user = db.getReference().child("User");
-        user.keepSynced(true);
 
         friendsList = (RecyclerView)v.findViewById(R.id.friendsRecycler);
 

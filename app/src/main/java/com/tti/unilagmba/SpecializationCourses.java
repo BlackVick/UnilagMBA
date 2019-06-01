@@ -45,7 +45,6 @@ public class SpecializationCourses extends AppCompatActivity {
 
         db = FirebaseDatabase.getInstance();
         specializations = db.getReference("SpecializationCourses");
-        specializations.keepSynced(true);
         specializationId = getIntent().getStringExtra("specializationId");
         specializationName = getIntent().getStringExtra("SpecializationName");
 
@@ -56,7 +55,6 @@ public class SpecializationCourses extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         mToolbar = (Toolbar)findViewById(R.id.specialCoursesAppBar);
         setSupportActionBar(mToolbar);
@@ -143,7 +141,6 @@ public class SpecializationCourses extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

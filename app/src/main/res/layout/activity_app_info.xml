@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Version 1.2.4"
+            android:text="Version 1.3.1"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_gravity="center"
@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Running On SLA Engine 2.0"
+            android:text="Running On Ghost Engine 2.0"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_gravity="center"

@@ -1,30 +1,21 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.tti.unilagmba.News"
-    android:fitsSystemWindows="true"
-    android:padding="7dp"
-    android:background="@color/transparent">
+    android:fitsSystemWindows="true">
 
-    <RelativeLayout
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="150dp"
+        android:visibility="gone"/>
 
-        <com.daimajia.slider.library.SliderLayout
-            android:id="@+id/slider"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"></com.daimajia.slider.library.SliderLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/newsRecycler"/>
 
-        <!-- TODO: Update blank fragment layout -->
-        <android.support.v7.widget.RecyclerView
-            android:layout_below="@+id/slider"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/newsRecycler"></android.support.v7.widget.RecyclerView>
-
-    </RelativeLayout>
-
-
-
-</FrameLayout>
+</RelativeLayout>

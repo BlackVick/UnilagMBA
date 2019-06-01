@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,7 @@ public class AddFriendActivity extends AppCompatActivity {
     private RecyclerView searchList;
     private LinearLayoutManager layoutManager;
     private EditText searchBox;
-    private ImageButton searchButton;
+    private ImageView searchButton;
     private FirebaseRecyclerAdapter<User, SearchViewHolder> adapter;
     String userSav = "";
 
@@ -61,10 +62,9 @@ public class AddFriendActivity extends AppCompatActivity {
         /*----------   KEEP USERS ONLINE   ----------*/
         usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         searchBox = (EditText)findViewById(R.id.searchBox);
-        searchButton = (ImageButton)findViewById(R.id.searchButton);
+        searchButton = (ImageView)findViewById(R.id.searchButton);
 
         searchList = (RecyclerView)findViewById(R.id.searchRecycler);
         searchList.setHasFixedSize(true);
@@ -182,7 +182,6 @@ public class AddFriendActivity extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

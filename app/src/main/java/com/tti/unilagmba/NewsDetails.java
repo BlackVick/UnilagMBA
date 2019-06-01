@@ -38,13 +38,10 @@ public class NewsDetails extends AppCompatActivity {
     ImageView newsImage;
     EditText commentBox;
     String newsId = "";
-    String newsCategory = "";
     NewsFeeds currentNews;
-    MissingItems currentMiss;
-    Events currentEvent;
     CommentMessage newComment;
     FirebaseDatabase db;
-    DatabaseReference newsRef, missRef, eventRef, usersRef;
+    DatabaseReference newsRef, usersRef;
     FirebaseRecyclerAdapter<CommentMessage, CommentViewHolder> adapter;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -58,7 +55,7 @@ public class NewsDetails extends AppCompatActivity {
         Paper.init(this);
         userSav = Paper.book().read(Common.USER_KEY);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        ImageView fab = (ImageView) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,80 +89,26 @@ public class NewsDetails extends AppCompatActivity {
             }
 
         };
+        ((LinearLayoutManager) layoutManager).setReverseLayout(true);
+        ((LinearLayoutManager) layoutManager).setStackFromEnd(true);
         recyclerView.setLayoutManager(layoutManager);
 
         db = FirebaseDatabase.getInstance();
         newsRef = db.getReference("NewsFeeds");
-        newsRef.keepSynced(true);
-        missRef = db.getReference("MissingItems");
-        missRef.keepSynced(true);
-        eventRef = db.getReference("Events");
-        eventRef.keepSynced(true);
 
         /*----------   KEEP USERS ONLINE   ----------*/
         usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         if (getIntent() != null){
             newsId = getIntent().getStringExtra("NewsId");
-            newsCategory = getIntent().getStringExtra("NewsCategory");
         }
-        if (!newsId.isEmpty() && newsCategory.equals("0")) {
+
+        if (!newsId.isEmpty()) {
             getNewsDetails(newsId);
             loadComments(newsId);
 
-        } else if (!newsId.isEmpty() && newsCategory.equals("1")) {
-            getMissingNewsDetails(newsId);
-            loadComments(newsId);
-
-        } else if (!newsId.isEmpty() && newsCategory.equals("2")) {
-            getEventNewsDetails(newsId);
-            loadComments(newsId);
-
         }
-    }
-
-    private void getEventNewsDetails(String newsId) {
-        eventRef.child(newsId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                currentEvent = dataSnapshot.getValue(Events.class);
-
-                Picasso.with(getBaseContext()).load(currentEvent.getNewsImage())
-                        .into(newsImage);
-
-                newsTitle.setText(currentEvent.getNewsTitle());
-                newsTime.setText(currentEvent.getTime());
-                newsDetails.setText(currentEvent.getNewsDetail());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private void getMissingNewsDetails(String newsId) {
-        missRef.child(newsId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                currentMiss = dataSnapshot.getValue(MissingItems.class);
-
-                Picasso.with(getBaseContext()).load(currentMiss.getNewsImage())
-                        .into(newsImage);
-
-                newsTitle.setText(currentMiss.getNewsTitle());
-                newsTime.setText(currentMiss.getTime());
-                newsDetails.setText(currentMiss.getNewsDetail());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
     private void sendComment() {
@@ -233,8 +176,17 @@ public class NewsDetails extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 currentNews = dataSnapshot.getValue(NewsFeeds.class);
 
-                Picasso.with(getBaseContext()).load(currentNews.getNewsImage())
-                        .into(newsImage);
+                if (!currentNews.getNewsImage().equalsIgnoreCase("")){
+                    Picasso.with(getBaseContext())
+                            .load(currentNews.getNewsImage())
+                            .placeholder(R.drawable.unilag_logo)
+                            .into(newsImage);
+                } else {
+
+                    newsImage.setImageResource(R.drawable.unilag_logo);
+
+                }
+
 
                 newsTitle.setText(currentNews.getNewsTitle());
                 newsTime.setText(currentNews.getTime());
@@ -258,7 +210,6 @@ public class NewsDetails extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

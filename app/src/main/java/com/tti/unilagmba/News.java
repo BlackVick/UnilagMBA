@@ -67,11 +67,6 @@ public class News extends Fragment {
 
         db = FirebaseDatabase.getInstance();
         news = db.getReference("NewsFeeds");
-        news.keepSynced(true);
-        missing = db.getReference("MissingItems");
-        missing.keepSynced(true);
-        event = db.getReference("Events");
-        event.keepSynced(true);
         bannerStatus = db.getReference("BannerStatus");
 
         v = inflater.inflate(R.layout.fragment_news, container, false);
@@ -191,37 +186,51 @@ public class News extends Fragment {
     }
 
     private void loadNewsFeed() {
-        adapter = new FirebaseRecyclerAdapter<NewsFeeds, NewsFeedViewHolder>(NewsFeeds.class, R.layout.news_item, NewsFeedViewHolder.class, news) {
+        adapter = new FirebaseRecyclerAdapter<NewsFeeds, NewsFeedViewHolder>(
+                NewsFeeds.class,
+                R.layout.news_item,
+                NewsFeedViewHolder.class,
+                news) {
             @Override
             protected void populateViewHolder(final NewsFeedViewHolder viewHolder, final NewsFeeds model, int position) {
+
                 viewHolder.newsTitle.setText(model.getNewsTitle());
                 viewHolder.newsTime.setText(model.getTime());
-                Picasso.with(getContext()).load(model.getNewsImage())
-                        .networkPolicy(NetworkPolicy.OFFLINE)
-                        .resize(120, 120)
-                        .centerCrop()
-                        .into(viewHolder.newsPicture, new Callback() {
-                            @Override
-                            public void onSuccess() {
 
-                            }
+                if (!model.getNewsImage().equalsIgnoreCase("")){
 
-                            @Override
-                            public void onError() {
-                                Picasso.with(getContext()).load(model.getNewsImage())
-                                        .resize(120, 120)
-                                        .centerCrop()
-                                        .into(viewHolder.newsPicture);
-                            }
-                        });
+                    Picasso.with(getContext()).load(model.getNewsImage())
+                            .networkPolicy(NetworkPolicy.OFFLINE)
+                            .resize(120, 120)
+                            .centerCrop()
+                            .placeholder(R.drawable.unilag_logo)
+                            .into(viewHolder.newsPicture, new Callback() {
+                                @Override
+                                public void onSuccess() {
 
-                final NewsFeeds local = model;
+                                }
+
+                                @Override
+                                public void onError() {
+                                    Picasso.with(getContext()).load(model.getNewsImage())
+                                            .resize(120, 120)
+                                            .centerCrop()
+                                            .into(viewHolder.newsPicture);
+                                }
+                            });
+
+                } else {
+
+                    viewHolder.newsPicture.setImageResource(R.drawable.unilag_logo);
+
+                }
+
+
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
                         Intent newsDetail = new Intent(getContext(), NewsDetails.class);
                         newsDetail.putExtra("NewsId",adapter.getRef(position).getKey());
-                        newsDetail.putExtra("NewsCategory", model.getNewsCategory());
                         startActivity(newsDetail);
                         getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
@@ -242,109 +251,13 @@ public class News extends Fragment {
 
         int id = item.getItemId();
 
-        if (id == R.id.action_main_feed) {
-            Toast.makeText(getContext(), "Main News Feed", Toast.LENGTH_SHORT).show();
-            loadNewsFeed();
-            return true;
-
-        } else if (id == R.id.missing_items){
-            Toast.makeText(getContext(), "Missing Items", Toast.LENGTH_SHORT).show();
-            loadMissingItems();
-            return true;
-
-        } else if (id == R.id.events_menu){
-            Toast.makeText(getContext(), "Events' News ", Toast.LENGTH_SHORT).show();
-            loadEvents();
-            return true;
-        } else if (id == R.id.action_help){
+        if (id == R.id.action_help){
             Intent help = new Intent(getContext(), Help.class);
             startActivity(help);
             getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void loadEvents() {
-        eventAdapter = new FirebaseRecyclerAdapter<Events, NewsFeedViewHolder>(Events.class, R.layout.news_item, NewsFeedViewHolder.class, event) {
-            @Override
-            protected void populateViewHolder(final NewsFeedViewHolder viewHolder, final Events model, int position) {
-                viewHolder.newsTitle.setText(model.getNewsTitle());
-                viewHolder.newsTime.setText(model.getTime());
-                Picasso.with(getContext()).load(model.getNewsImage())
-                        .networkPolicy(NetworkPolicy.OFFLINE)
-                        .resize(120, 120)
-                        .centerCrop()
-                        .into(viewHolder.newsPicture, new Callback() {
-                            @Override
-                            public void onSuccess() {
-
-                            }
-
-                            @Override
-                            public void onError() {
-                                Picasso.with(getContext()).load(model.getNewsImage())
-                                        .resize(120, 120)
-                                        .centerCrop()
-                                        .into(viewHolder.newsPicture);
-                            }
-                        });
-
-                final Events local = model;
-                viewHolder.setItemClickListener(new ItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position, boolean isLongClick) {
-                        Intent newsDetail = new Intent(getContext(), NewsDetails.class);
-                        newsDetail.putExtra("NewsId",eventAdapter.getRef(position).getKey());
-                        newsDetail.putExtra("NewsCategory", model.getNewsCategory());
-                        startActivity(newsDetail);
-                        getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                    }
-                });
-            }
-        };
-        recyclerView.setAdapter(eventAdapter);
-    }
-
-    private void loadMissingItems() {
-        missAdapter = new FirebaseRecyclerAdapter<MissingItems, NewsFeedViewHolder>(MissingItems.class, R.layout.news_item, NewsFeedViewHolder.class, missing) {
-            @Override
-            protected void populateViewHolder(final NewsFeedViewHolder viewHolder, final MissingItems model, int position) {
-                viewHolder.newsTitle.setText(model.getNewsTitle());
-                viewHolder.newsTime.setText(model.getTime());
-                Picasso.with(getContext()).load(model.getNewsImage())
-                        .networkPolicy(NetworkPolicy.OFFLINE)
-                        .resize(120, 120)
-                        .centerCrop()
-                        .into(viewHolder.newsPicture, new Callback() {
-                            @Override
-                            public void onSuccess() {
-
-                            }
-
-                            @Override
-                            public void onError() {
-                                Picasso.with(getContext()).load(model.getNewsImage())
-                                        .resize(120, 120)
-                                        .centerCrop()
-                                        .into(viewHolder.newsPicture);
-                            }
-                        });
-
-                final MissingItems local = model;
-                viewHolder.setItemClickListener(new ItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position, boolean isLongClick) {
-                        Intent newsDetail = new Intent(getContext(), NewsDetails.class);
-                        newsDetail.putExtra("NewsId",missAdapter.getRef(position).getKey());
-                        newsDetail.putExtra("NewsCategory", model.getNewsCategory());
-                        startActivity(newsDetail);
-                        getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                    }
-                });
-            }
-        };
-        recyclerView.setAdapter(missAdapter);
     }
 
     @Override

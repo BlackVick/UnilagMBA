@@ -45,7 +45,6 @@ public class UnilagMBAExcosDetail extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         if (getIntent() != null) {
             adminId = getIntent().getStringExtra("AdminId");
@@ -118,7 +117,6 @@ public class UnilagMBAExcosDetail extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

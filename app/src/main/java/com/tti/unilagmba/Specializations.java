@@ -50,7 +50,6 @@ public class Specializations extends Fragment {
 
         db = FirebaseDatabase.getInstance();
         specializations = db.getReference("Specializations");
-        specializations.keepSynced(true);
 
         specializationsRecycler = (RecyclerView)v.findViewById(R.id.specializationRecyclerView);
         specializationsRecycler.setHasFixedSize(true);

@@ -68,7 +68,6 @@ public class FriendRequestActivity extends AppCompatActivity {
 
         db = FirebaseDatabase.getInstance();
         friendRequestRef = db.getReference().child("FriendRequest").child(Common.currentUser.getMatric());
-        friendRequestRef.keepSynced(true);
         user = db.getReference().child("User");
 
         /*----------   KEEP USERS ONLINE   ----------*/
@@ -78,7 +77,6 @@ public class FriendRequestActivity extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         friendRequests = (RecyclerView)findViewById(R.id.friendRequestRecycler);
 
@@ -301,7 +299,6 @@ public class FriendRequestActivity extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

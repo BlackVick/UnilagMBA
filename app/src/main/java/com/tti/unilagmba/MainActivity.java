@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity
         if (userSav != null) {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
             usersRef.child("online").setValue(true);
-            usersRef.keepSynced(true);
 
             /*----------   CURRENT USER HANDLER   ----------*/
             usersRef.addValueEventListener(new ValueEventListener() {
@@ -169,7 +168,6 @@ public class MainActivity extends AppCompatActivity
         if (userSav != null) {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
             usersRef.child("online").setValue(true);
-            usersRef.keepSynced(true);
         } else {
 
             Intent emergencyLogin = new Intent(MainActivity.this, Login.class);

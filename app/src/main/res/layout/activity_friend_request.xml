@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.tti.unilagmba.FriendRequestActivity"
-    android:padding="0dp">
+    android:padding="0dp"
+    android:background="@drawable/backgroundgradient">
 
     <include layout="@layout/usla_app_bar_layout" android:id="@+id/friendsRequestAppBar"/>
 
@@ -14,6 +15,6 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/friendRequestRecycler"></android.support.v7.widget.RecyclerView>
+        android:id="@+id/friendRequestRecycler"/>
 
 </RelativeLayout>

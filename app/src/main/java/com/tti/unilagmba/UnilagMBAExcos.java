@@ -52,7 +52,6 @@ public class UnilagMBAExcos extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
 
         loadDepartmentAdmins();
@@ -65,7 +64,6 @@ public class UnilagMBAExcos extends AppCompatActivity {
     private void loadDepartmentAdmins() {
         db = FirebaseDatabase.getInstance();
         mbaExcos = db.getReference("UnilagMBAExcos");
-        mbaExcos.keepSynced(true);
 
         adminRecycler = (RecyclerView)findViewById(R.id.departmentAdminRecycler);
         adminRecycler.setHasFixedSize(true);
@@ -169,7 +167,6 @@ public class UnilagMBAExcos extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

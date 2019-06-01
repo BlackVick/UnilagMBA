@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".SpecializationCourses"
     android:padding="0dp"
-    android:background="@drawable/new_unilag_bacground">
+    android:background="@drawable/backgroundgradient">
 
     <include layout="@layout/usla_app_bar_layout" android:id="@+id/specialCoursesAppBar"/>
 
@@ -15,6 +15,6 @@
         android:layout_below="@id/specialCoursesAppBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/specializationCoursesRecycler"></android.support.v7.widget.RecyclerView>
+        android:id="@+id/specializationCoursesRecycler"/>
 
 </RelativeLayout>

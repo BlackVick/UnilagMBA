@@ -43,15 +43,13 @@
             android:configChanges="orientation"
             android:label="@string/title_activity_main"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".NewsDetails"
             android:configChanges="orientation"
             android:label="NewsDetail"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChatBackground" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".StudentPortal"
             android:configChanges="orientation"
@@ -74,15 +72,13 @@
             android:configChanges="orientation"
             android:label="ProfileSetting"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChatBackground" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".UpdateUserInfo"
             android:configChanges="orientation"
             android:launchMode="singleTop"
             android:parentActivityName=".ProfileSetting"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChatBackground" />
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:configChanges="orientation"
@@ -93,14 +89,12 @@
             android:name=".UpdateNewsFeed"
             android:configChanges="orientation"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChatBackground" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".UsersProfile"
             android:configChanges="orientation"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChatBackground"/>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".DayDetail"
             android:configChanges="orientation"
@@ -113,22 +107,19 @@
             android:configChanges="orientation"
             android:launchMode="singleTop"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChatBackground"/>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AddFriendActivity"
             android:configChanges="orientation"
             android:launchMode="singleTop"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChatBackground" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".FriendRequestActivity"
             android:configChanges="orientation"
             android:launchMode="singleTop"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChatBackground" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Documents"
             android:configChanges="orientation"

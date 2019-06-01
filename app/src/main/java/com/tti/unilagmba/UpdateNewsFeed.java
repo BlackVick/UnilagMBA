@@ -6,13 +6,16 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,18 +50,17 @@ public class UpdateNewsFeed extends AppCompatActivity {
     MaterialEditText topic;
     EditText broadcast;
     Button sendBc;
-    ImageButton imageUpload;
+    ImageView imageUpload;
     FirebaseDatabase db;
-    DatabaseReference news, missing, events, usersRef;
+    DatabaseReference news, usersRef;
     FirebaseStorage storage;
     StorageReference storageReference;
-    NewsFeeds newNews;
     Uri imageUri;
-    MaterialSpinner spinner;
     private final static int GALLERY_REQUEST_CODE = 2;
     private android.app.AlertDialog mDialog;
     APIService mService;
     String userSav = "";
+    String thumbDownloadUrl;
 
     static String[] words = {"fuck", "fukk", "fucks", "fucker", "fucking", "fuckin", "fu*k", "phuck", "motherfucker", "muthafuka", "muthafucka",
             "shit", "sh*t", "bullshit", "bullcrap",
@@ -76,11 +78,7 @@ public class UpdateNewsFeed extends AppCompatActivity {
         mService = Common.getFCMService();
         db = FirebaseDatabase.getInstance();
         news = db.getReference("NewsFeeds");
-        missing = db.getReference("MissingItems");
-        events = db.getReference("Events");
 
-        spinner = (MaterialSpinner)findViewById(R.id.newsCategorySpinner);
-        spinner.setItems("Main News Feed", "Missing Items", "Events");
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -92,25 +90,19 @@ public class UpdateNewsFeed extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         topic = (MaterialEditText)findViewById(R.id.newsTopic);
         broadcast = (EditText)findViewById(R.id.newsDetails);
         sendBc = (Button)findViewById(R.id.updateNewsFeedBtn);
-        imageUpload = (ImageButton)findViewById(R.id.uploadNewsImageButton);
+        imageUpload = (ImageView)findViewById(R.id.uploadNewsImageButton);
 
         imageUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (topic.getText().toString().isEmpty() || broadcast.getText().toString().isEmpty() || String.valueOf(spinner.getSelectedIndex()).isEmpty()) {
-                    Toast.makeText(UpdateNewsFeed.this, "Please Fill The Text Fields", Toast.LENGTH_SHORT).show();
-                } else
-                {
-                    Intent gallery_intent = new Intent();
-                    gallery_intent.setType("image/*");
-                    gallery_intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(Intent.createChooser(gallery_intent, "Pick Image"), GALLERY_REQUEST_CODE);
-                }
+                Intent gallery_intent = new Intent();
+                gallery_intent.setType("image/*");
+                gallery_intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(gallery_intent, "Pick Image"), GALLERY_REQUEST_CODE);
             }
         });
 
@@ -119,32 +111,50 @@ public class UpdateNewsFeed extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (newNews != null && String.valueOf(spinner.getSelectedIndex()).equals("0")){
-                    news.push().setValue(newNews);
-                    sendNotification();
-                    Intent clear = new Intent(UpdateNewsFeed.this, MainActivity.class);
-                    startActivity(clear);
-                    finish();
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                if (Common.isConnectedToInternet(getBaseContext())) {
 
+                    if (!TextUtils.isEmpty(topic.getText().toString()) || !TextUtils.isEmpty(broadcast.getText().toString()))
+                        sendFeed();
 
-                } else if (newNews != null && String.valueOf(spinner.getSelectedIndex()).equals("1")){
-                    missing.push().setValue(newNews);
-                    sendNotification();
-                    Intent clear = new Intent(UpdateNewsFeed.this, MainActivity.class);
-                    startActivity(clear);
-                    finish();
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
-
-                } else if (newNews != null && String.valueOf(spinner.getSelectedIndex()).equals("2")){
-                    events.push().setValue(newNews);
-                    sendNotification();
-                    Intent clear = new Intent(UpdateNewsFeed.this, MainActivity.class);
-                    startActivity(clear);
-                    finish();
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                } else {
+                    Toast.makeText(UpdateNewsFeed.this, "No Internet Access !", Toast.LENGTH_SHORT).show();
                 }
+
+            }
+        });
+
+    }
+
+    private void sendFeed(){
+
+        long date = System.currentTimeMillis();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy h:mm a");
+        final String dateString = sdf.format(date);
+        final String censoredTopic = censor(topic.getText().toString().trim());
+        final String censoredBroadcast = censor(broadcast.getText().toString().trim());
+
+
+        final Map<String, Object> newFeedMap = new HashMap<>();
+        newFeedMap.put("newsTitle", censoredTopic);
+        newFeedMap.put("sender", Common.currentUser.getUserName());
+        newFeedMap.put("newsDetail", censoredBroadcast);
+
+        if (imageUri != null)
+            newFeedMap.put("newsImage", thumbDownloadUrl);
+        else
+            newFeedMap.put("newsImage", "");
+
+        newFeedMap.put("time", dateString);
+
+        news.push().setValue(newFeedMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                sendNotification();
+                Intent clear = new Intent(UpdateNewsFeed.this, MainActivity.class);
+                startActivity(clear);
+                finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -209,6 +219,8 @@ public class UpdateNewsFeed extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
 
                 mDialog = new SpotsDialog(UpdateNewsFeed.this, "Uploading Picture");
+                mDialog.setCancelable(false);
+                mDialog.setCanceledOnTouchOutside(false);
                 mDialog.show();
 
                 Uri resultUri = result.getUri();
@@ -217,11 +229,11 @@ public class UpdateNewsFeed extends AppCompatActivity {
 
                 try {
                     Bitmap thumb_bitmap = new Compressor(this)
-                            .setQuality(40)
+                            .setQuality(60)
                             .compressToBitmap(thumb_filepath);
 
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    thumb_bitmap.compress(Bitmap.CompressFormat.JPEG, 40, baos);
+                    thumb_bitmap.compress(Bitmap.CompressFormat.JPEG, 60, baos);
                     final byte[] thumb_byte = baos.toByteArray();
 
                     final StorageReference thumbFilepath = storageReference.child("newsfeedimages").child(censor(topic.getText().toString()) + ".jpg");
@@ -237,26 +249,15 @@ public class UpdateNewsFeed extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> thumb_task) {
 
-                                        imageUpload.setImageResource(R.drawable.ic_uploaded_shit);
-
-                                        String thumbDownloadUrl = thumb_task.getResult().getDownloadUrl().toString();
+                                        thumbDownloadUrl = thumb_task.getResult().getDownloadUrl().toString();
 
                                         if (thumb_task.isSuccessful()){
 
-                                            long date = System.currentTimeMillis();
-
-                                            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy h:mm a");
-                                            final String dateString = sdf.format(date);
-                                            final String censoredTopic = censor(topic.getText().toString());
-                                            final String censoredBroadcast = censor(broadcast.getText().toString());
-
-                                            newNews = new NewsFeeds(censoredTopic, Common.currentUser.getUserName(), censoredBroadcast, thumbDownloadUrl, dateString, String.valueOf(spinner.getSelectedIndex()));
-
+                                            imageUpload.setImageResource(R.drawable.ic_uploaded_shit);
                                             mDialog.dismiss();
 
                                         } else {
                                             mDialog.dismiss();
-                                            imageUpload.setImageResource(R.drawable.ic_image_black_24dp);
                                             Toast.makeText(UpdateNewsFeed.this, "Error Uploading Thumb", Toast.LENGTH_SHORT).show();
                                         }
                                     }
@@ -290,7 +291,6 @@ public class UpdateNewsFeed extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

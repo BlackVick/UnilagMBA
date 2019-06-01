@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Help"
-    android:background="@drawable/new_unilag_bacground">
+    android:background="@drawable/backgroundgradient">
 
     <include layout="@layout/usla_app_bar_layout" android:id="@+id/helpAppBar"/>
 
@@ -27,14 +27,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FAQ"
-                android:textSize="23sp"
+                android:textSize="28sp"
                 android:padding="7dp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textStyle="bold"/>
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
-                android:background="@color/white"/>
+                android:background="@color/black"/>
 
         </LinearLayout>
 
@@ -49,13 +49,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Contact Us"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:padding="7dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
-                android:background="@color/white"/>
+                android:background="@color/black"/>
 
         </LinearLayout>
 
@@ -70,13 +70,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="App Info"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:padding="7dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
-                android:background="@color/white"/>
+                android:background="@color/black"/>
 
         </LinearLayout>
 

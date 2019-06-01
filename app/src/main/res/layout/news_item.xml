@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="100dp"
-    android:background="@color/white"
-    app:corner_radius="16dp"
-    android:layout_marginTop="2dp"
-    android:layout_marginLeft="4dp"
-    android:layout_marginRight="4dp"
-    android:layout_marginBottom="2dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_backround_ripple_news">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="10">
 
@@ -24,43 +19,45 @@
             android:src="@drawable/unilag_logo"
             android:layout_width="0dp"
             android:layout_weight="2.5"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"/>
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:layout_margin="0.3dp"/>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="7.5"
-            android:layout_height="match_parent"
-            android:weightSum="3"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/news_head"
-                android:text="News Headline"
-                android:background="@color/shadeFade"
-                android:textSize="18sp"
+                android:text=""
+                android:textSize="15sp"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2.4"
+                android:layout_height="wrap_content"
                 android:padding="9dp"
                 android:maxLines="2"/>
 
             <TextView
                 android:gravity="end"
                 android:id="@+id/news_time"
-                android:text="time"
-                android:background="@color/shadeFade"
+                android:text=""
                 android:textSize="12sp"
                 android:textColor="@color/ButtonAlt"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.6"
-                android:paddingEnd="16dp"
-                android:paddingRight="5dp"
-                android:layout_gravity="bottom"/>
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_height="wrap_content"
+                android:padding="2dp"/>
         </LinearLayout>
 
     </LinearLayout>
 
-</com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"/>
+
+</RelativeLayout>

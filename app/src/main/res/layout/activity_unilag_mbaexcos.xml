@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.tti.unilagmba.UnilagMBAExcos"
-    android:background="@drawable/new_unilag_bacground">
+    android:background="@drawable/backgroundgradient">
 
     <include layout="@layout/usla_app_bar_layout"
         android:id="@+id/unilagExcosAppBar" />

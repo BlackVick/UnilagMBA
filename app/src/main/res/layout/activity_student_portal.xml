@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/new_unilag_bacground"
-    android:padding="4dp"
+    android:background="@drawable/backgroundgradient"
+    android:padding="2dp"
     tools:context="com.tti.unilagmba.StudentPortal">
 
     <WebView
         android:id="@+id/studentPortalWebView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></WebView>
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

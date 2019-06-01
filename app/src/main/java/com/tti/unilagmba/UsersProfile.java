@@ -72,7 +72,6 @@ public class UsersProfile extends AppCompatActivity {
         /*----------   KEEP USERS ONLINE   ----------*/
         usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
 
         mProfileImageView = (ImageView)findViewById(R.id.usersProfileImage);
@@ -387,7 +386,6 @@ public class UsersProfile extends AppCompatActivity {
         /*----------   KEEP USERS ONLINE   ----------*/
         usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(Common.currentUser.getMatric());
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

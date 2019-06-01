@@ -83,7 +83,7 @@ public class Documents extends AppCompatActivity {
     DownloadManager downloadManager;
     MaterialSpinner spinner;
     private static final int STORAGE_REQUEST_CODE = 9999;
-    CardView assignmentPortal;
+    RelativeLayout assignmentPortal;
     APIService mService;
     String userSav = "";
 
@@ -99,7 +99,7 @@ public class Documents extends AppCompatActivity {
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fabAnnounce = (FloatingActionButton) findViewById(R.id.fabExam);
-        assignmentPortal = (CardView) findViewById(R.id.assignmentCard);
+        assignmentPortal = (RelativeLayout) findViewById(R.id.assignmentCard);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +133,6 @@ public class Documents extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         mService = Common.getFCMService();
 
@@ -526,7 +525,6 @@ public class Documents extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

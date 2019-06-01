@@ -19,6 +19,7 @@ import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -131,7 +132,6 @@ public class ChatActivity extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         /*-----------   CUSTOM ACTION BAR STUFF   ----------*/
 
@@ -163,25 +163,7 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         messagesRecycler = (RecyclerView)findViewById(R.id.messagesRecycler);
-        mLinearLayoutManager = new LinearLayoutManager(this){
-
-            @Override
-            public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
-                LinearSmoothScroller smoothScroller = new LinearSmoothScroller(ChatActivity.this) {
-
-                    private static final float SPEED = 300f;
-
-                    @Override
-                    protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
-                        return SPEED / displayMetrics.densityDpi;
-                    }
-
-                };
-                smoothScroller.setTargetPosition(position);
-                startSmoothScroll(smoothScroller);
-            }
-
-        };
+        mLinearLayoutManager = new LinearLayoutManager(this);
         messagesRecycler.setHasFixedSize(true);
         messagesRecycler.setLayoutManager(mLinearLayoutManager);
 
@@ -480,7 +462,6 @@ public class ChatActivity extends AppCompatActivity {
         } else {
             chatMessagesRef2 = db.getReference("ChatMessages").child(userSav).child(user_id);
         }
-        chatMessagesRef2.keepSynced(true);
 
         adapter = new FirebaseRecyclerAdapter<Message, ChatMessageViewHolder>(
                 Message.class,
@@ -572,6 +553,13 @@ public class ChatActivity extends AppCompatActivity {
                     }
 
                 } else if (model.getFrom().equalsIgnoreCase(user_id)){
+
+                    viewHolder.itemView.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+                        @Override
+                        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+
+                        }
+                    });
 
                     viewHolder.yourWholeMessageLayout.setVisibility(View.GONE);
 
@@ -753,9 +741,6 @@ public class ChatActivity extends AppCompatActivity {
                 int friendlyMessageCount = adapter.getItemCount();
                 int lastVisiblePosition =
                         mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
-                /* If the recycler view is initially being loaded or the
-                   user is at the bottom of the list, scroll to the bottom
-                   of the list to show the newly added message.*/
                 if (lastVisiblePosition == -1 ||
                         (positionStart >= (friendlyMessageCount - 1) &&
                                 lastVisiblePosition == (positionStart - 1))) {
@@ -984,7 +969,6 @@ public class ChatActivity extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

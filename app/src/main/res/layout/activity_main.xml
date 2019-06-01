@@ -6,9 +6,10 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-    android:background="@drawable/new_unilag_bacground">
+    android:background="@drawable/backgroundgradient">
 
     <include
         layout="@layout/app_bar_main"

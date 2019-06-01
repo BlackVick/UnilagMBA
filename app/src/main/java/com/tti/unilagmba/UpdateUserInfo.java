@@ -47,7 +47,6 @@ public class UpdateUserInfo extends AppCompatActivity {
         /*----------   KEEP USERS ONLINE   ----------*/
         usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         mToolbar = (Toolbar)findViewById(R.id.changeInfoAppBar);
         setSupportActionBar(mToolbar);
@@ -137,7 +136,6 @@ public class UpdateUserInfo extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

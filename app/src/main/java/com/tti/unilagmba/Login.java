@@ -200,7 +200,7 @@ public class Login extends android.app.Activity {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setData(Uri.parse("mailto:"));
-                String[] to = {"simonrileyindustries@gmail.com"};
+                String[] to = {"unilag_mba@teenqtech.com"};
                 intent.putExtra(Intent.EXTRA_EMAIL, to);
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Unilag MBA Association Secure Code Recovery Request!");
                 intent.putExtra(Intent.EXTRA_TEXT, "My Full Name is "+fullName.getText().toString()+". \n"+

@@ -48,7 +48,6 @@ public class Materials extends Fragment {
 
         db = FirebaseDatabase.getInstance();
         faculty = db.getReference("Courses");
-        faculty.keepSynced(true);
 
         facultyRecycler = (RecyclerView)v.findViewById(R.id.facultyRecyclerView);
         facultyRecycler.setHasFixedSize(true);

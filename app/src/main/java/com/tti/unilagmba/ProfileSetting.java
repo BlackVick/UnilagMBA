@@ -74,10 +74,8 @@ public class ProfileSetting extends AppCompatActivity {
         /*----------   KEEP USERS ONLINE   ----------*/
         usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
 
         userProfile = db.getReference().child("User").child(userSav);
-        userProfile.keepSynced(true);
 
         mImageStorage = FirebaseStorage.getInstance().getReference();
 
@@ -302,7 +300,6 @@ public class ProfileSetting extends AppCompatActivity {
             usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(userSav);
         }
         usersRef.child("online").setValue(true);
-        usersRef.keepSynced(true);
     }
 
     @Override

@@ -7,64 +7,64 @@
     android:layout_height="match_parent"
     android:padding="0dp"
     tools:context="com.tti.unilagmba.NewsDetails"
-    android:background="@color/white">
+    android:background="@drawable/backgroundgradient">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/enterCommentTxt"
-        android:layout_marginBottom="5dp">
+        android:layout_above="@+id/inputLayout"
+        android:layout_marginBottom="2dp">
+
         <LinearLayout
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:focusable="true"
             android:focusableInTouchMode="true">
 
             <ImageView
-                android:background="@color/white"
                 android:id="@+id/imageOfNews"
                 android:adjustViewBounds="true"
                 android:layout_gravity="center"
                 android:src="@drawable/unilag_logo"
-                android:scaleType="fitCenter"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"/>
+                android:layout_height="wrap_content"/>
 
             <TextView
-                android:layout_marginTop="12dp"
                 android:id="@+id/titleOfNews"
-                android:text="U.S.L.A"
-                android:layout_gravity="center"
+                android:text=""
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
-                android:paddingEnd="8dp"/>
+                android:paddingEnd="8dp"
+                android:paddingTop="14dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:background="@color/black"/>
 
             <TextView
-                android:layout_marginTop="12dp"
                 android:background="@color/white"
                 android:id="@+id/newsDetailsFull"
-                android:text="U.S.L.A means University Students Learning Assistant."
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
-                android:paddingEnd="8dp"/>
+                android:paddingEnd="8dp"
+                android:paddingTop="16dp"/>
 
             <TextView
                 android:background="@color/white"
                 android:id="@+id/timeOfNews"
                 android:gravity="end"
-                android:text="Mar 16, 2018.  20:06"
+                android:text=""
                 android:textSize="12sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,38 +74,44 @@
                 android:background="@color/white"
                 android:id="@+id/commentList"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"></android.support.v7.widget.RecyclerView>
+                android:layout_height="450dp"/>
+
         </LinearLayout>
+
     </ScrollView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        app:backgroundTint="@color/white"
-        android:src="@drawable/ic_chat_send_24dp"
-        />
-
-    <EditText
-        android:drawableTint="@color/overlayActionBar"
-        android:hint="Comment"
-        android:id="@+id/enterCommentTxt"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/fab"
+        android:orientation="horizontal"
+        android:weightSum="10"
         android:layout_alignParentBottom="true"
-        android:layout_alignBaseline="@+id/fab"
-        android:layout_alignTop="@+id/fab"
-        android:layout_alignBottom="@+id/fab"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/commenttext"
-        android:drawableLeft="@drawable/ic_comment_black_24dp"
-        android:layout_marginLeft="10dp"
-        android:drawablePadding="5dp">
+        android:id="@+id/inputLayout">
 
-    </EditText>
+        <EditText
+            android:drawableTint="@color/overlayActionBar"
+            android:hint="Comment"
+            android:id="@+id/enterCommentTxt"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="match_parent"
+            android:background="@drawable/commenttext"
+            android:drawableStart="@drawable/ic_comment_black_24dp"
+            android:maxLines="6"
+            android:drawablePadding="15dp"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"/>
+
+        <ImageView
+            android:id="@+id/fab"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_chat_send_24dp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

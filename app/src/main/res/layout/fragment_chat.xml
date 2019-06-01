@@ -4,14 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.tti.unilagmba.Chat"
-    android:background="@color/transparent"
-    android:padding="6dp"
     android:id="@+id/chatBaseLayout">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/friendsRecycler"></android.support.v7.widget.RecyclerView>
+        android:id="@+id/friendsRecycler"/>
 
 </FrameLayout>

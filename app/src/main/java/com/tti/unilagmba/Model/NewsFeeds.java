@@ -10,18 +10,17 @@ public class NewsFeeds {
     private String newsDetail;
     private String newsImage;
     private String time;
-    private String newsCategory;
 
     public NewsFeeds() {
     }
 
-    public NewsFeeds(String newsTitle, String sender, String newsDetail, String newsImage, String time, String newsCategory) {
+
+    public NewsFeeds(String newsTitle, String sender, String newsDetail, String newsImage, String time) {
         this.newsTitle = newsTitle;
         this.sender = sender;
         this.newsDetail = newsDetail;
         this.newsImage = newsImage;
         this.time = time;
-        this.newsCategory = newsCategory;
     }
 
     public String getNewsTitle() {
@@ -62,13 +61,5 @@ public class NewsFeeds {
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public String getNewsCategory() {
-        return newsCategory;
-    }
-
-    public void setNewsCategory(String newsCategory) {
-        this.newsCategory = newsCategory;
     }
 }
